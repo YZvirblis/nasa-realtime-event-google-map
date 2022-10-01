@@ -6,8 +6,10 @@ import mockData from "./mockData";
 function App() {
   const [eventData, setEventData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [location, setLocation] = useState(null);
 
   useEffect(() => {
+    setLoading(true);
     const fetchEvents = async () => {
       setLoading(true);
       const res = await fetch(
@@ -17,16 +19,29 @@ function App() {
       console.log(data);
 
       setEventData(data.events);
-      setLoading(false);
     };
     // fetchEvents();
     setEventData(mockData);
+
+    navigator.geolocation.getCurrentPosition(function (position) {
+      setLocation({
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+      });
+      console.log("Latitude is :", position.coords.latitude);
+      console.log("Longitude is :", position.coords.longitude);
+      setLoading(false);
+    });
   }, []);
 
   return (
     <div>
-      <Header></Header>
-      {!loading ? <Map eventData={eventData}></Map> : <h1>LOADING</h1>}
+      {/* <Header></Header> */}
+      {!loading ? (
+        <Map eventData={eventData} center={location}></Map>
+      ) : (
+        <h1>LOADING</h1>
+      )}
     </div>
   );
 }

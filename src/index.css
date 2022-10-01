@@ -10,7 +10,7 @@ body {
 
 .header {
   padding: 10px;
-  background-color: firebrick;
+  background-color: rgb(32, 41, 71);
   color: white;
   position: fixed;
   top: 0;

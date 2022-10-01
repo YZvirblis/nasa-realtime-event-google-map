@@ -5,7 +5,7 @@ import volcano from "@iconify/icons-mdi/volcano";
 
 import React, { useEffect, useState } from "react";
 
-function LocationMarker({ lat, lng, onClick, id, index }) {
+function LocationMarker({ lat, lng, onClick, id, index, visibility }) {
   const [icon, setIcon] = useState(null);
   const [style, setStyle] = useState("");
   useEffect(() => {
@@ -31,7 +31,7 @@ function LocationMarker({ lat, lng, onClick, id, index }) {
       <Icon
         icon={icon}
         className={`location-icon ${style} ${
-          index ? `opacity-${index.toString()}0` : ""
+          visibility ? null : "disabled hidden"
         }`}
       />
     </div>
