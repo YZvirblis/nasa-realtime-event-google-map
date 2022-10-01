@@ -2,7 +2,7 @@ import React from "react";
 
 function LocationInfoBox({ info }) {
   return (
-    <div className="max-w-sm h-full top-0 right-0 absolute bg-black text-white flex justify-center align-text-bottom mx-auto px-10 flex-col bg-opacity-50">
+    <div className="max-w-sm min-w-sm h-full top-0 right-0 absolute bg-black text-white flex justify-center align-text-bottom mx-auto px-10 flex-col bg-opacity-50">
       <h1 className="text-4xl font-bold border-b4 border-gray-500 inline">
         Event info:
       </h1>

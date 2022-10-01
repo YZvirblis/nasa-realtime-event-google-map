@@ -8,7 +8,6 @@ function Map({ eventData, center, zoom }) {
   const [locationInfo, setLocationInfo] = useState(null);
 
   const markers = eventData.map((ev, index) => {
-    // console.log(ev);
     if (ev.categories[0].id === 8) {
       return (
         <LocationMarker
@@ -36,6 +35,26 @@ function Map({ eventData, center, zoom }) {
           id={ev.categories[0].id}
         />
       );
+    }
+    if (ev.categories[0].id === 10) {
+      let stormTrail = [];
+      for (let i = 10; i > 0; i--) {
+        if (ev.geometries[i]) {
+          const num = i * 100;
+          const conditionalStyle = ` text-blue-${1000 - num} `;
+          stormTrail.push(
+            <LocationMarker
+              key={index + i}
+              lat={ev.geometries[i].coordinates[1]}
+              lng={ev.geometries[i].coordinates[0]}
+              onClick={() => setLocationInfo({ id: ev.id, title: ev.title })}
+              id={ev.categories[0].id}
+              index={i}
+            />
+          );
+        }
+      }
+      return [...stormTrail];
     }
     return null;
   });
