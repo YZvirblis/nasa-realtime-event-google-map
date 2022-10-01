@@ -36,7 +36,7 @@ function App() {
 
   return (
     <div>
-      {/* <Header></Header> */}
+      <Header></Header>
       {!loading ? (
         <Map eventData={eventData} center={location}></Map>
       ) : (
