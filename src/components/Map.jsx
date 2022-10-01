@@ -75,12 +75,12 @@ function Map({ eventData, center, zoom }) {
       >
         {markers}
       </GoogleMapReact>
-      <div className="absolute top-60 left-0 z-50 bg-cyan-50 border solid border-gray-400 rounded p-3 flex flex-col">
+      <div className="absolute top-60 left-0 z-50 bg-cyan-50 border solid border-gray-400 rounded p-3 flex flex-col filter">
         <div className="flex my-2">
           <Icon icon={fire} className={`location-icon text-red-500 mx-3`} />
           <button
             onClick={() => setShowFire(!showFire)}
-            className={showFire && "text-green-500"}
+            className={showFire ? "text-green-500" : null}
           >
             {showFire ? "ON" : "OFF"}
           </button>
@@ -92,7 +92,7 @@ function Map({ eventData, center, zoom }) {
           />
           <button
             onClick={() => setShowVolcano(!showVolcano)}
-            className={showVolcano && "text-green-500"}
+            className={showVolcano ? "text-green-500" : null}
           >
             {showVolcano ? "ON" : "OFF"}
           </button>
@@ -101,7 +101,7 @@ function Map({ eventData, center, zoom }) {
           <Icon icon={storm} className={`location-icon text-yellow-500 mx-3`} />
           <button
             onClick={() => setShowStorm(!showStorm)}
-            className={showStorm && "text-green-500"}
+            className={showStorm ? "text-green-500" : null}
           >
             {showStorm ? "ON" : "OFF"}
           </button>

@@ -50,6 +50,10 @@ body {
   color: white;
 }
 
+.filter {
+  width: 10vw;
+}
+
 .location-info ul {
   list-style-type: none;
   padding: 0;

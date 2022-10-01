@@ -16,20 +16,17 @@ function App() {
         `https://eonet.gsfc.nasa.gov/api/v2.1/events?api_key${process.env.REACT_APP_NASA_API_KEY}`
       );
       const data = await res.json();
-      console.log(data);
 
       setEventData(data.events);
     };
-    // fetchEvents();
-    setEventData(mockData);
+    fetchEvents();
+    // setEventData(mockData);
 
     navigator.geolocation.getCurrentPosition(function (position) {
       setLocation({
         lat: position.coords.latitude,
         lng: position.coords.longitude,
       });
-      console.log("Latitude is :", position.coords.latitude);
-      console.log("Longitude is :", position.coords.longitude);
       setLoading(false);
     });
   }, []);
