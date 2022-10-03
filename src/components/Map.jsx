@@ -77,32 +77,35 @@ function Map({ eventData, center, zoom }) {
       </GoogleMapReact>
       <div className="absolute top-60 left-0 z-50 bg-cyan-50 border solid border-gray-400 rounded p-3 flex flex-col filter">
         <div className="flex my-2">
-          <Icon icon={fire} className={`location-icon text-red-500 mx-3`} />
           <button
             onClick={() => setShowFire(!showFire)}
-            className={showFire ? "text-green-500" : null}
+            className={`${showFire ? "text-green-500" : null} flex flex-row`}
           >
+            <Icon icon={fire} className={`location-icon text-red-500 mx-3`} />
             {showFire ? "ON" : "OFF"}
           </button>
         </div>
         <div className="flex my-2">
-          <Icon
-            icon={volcano}
-            className={`location-icon text-orange-600 mx-3`}
-          />
           <button
             onClick={() => setShowVolcano(!showVolcano)}
-            className={showVolcano ? "text-green-500" : null}
+            className={`${showVolcano ? "text-green-500" : null} flex flex-row`}
           >
+            <Icon
+              icon={volcano}
+              className={`location-icon text-orange-600 mx-3`}
+            />
             {showVolcano ? "ON" : "OFF"}
           </button>
         </div>
         <div className="flex my-2">
-          <Icon icon={storm} className={`location-icon text-yellow-500 mx-3`} />
           <button
             onClick={() => setShowStorm(!showStorm)}
-            className={showStorm ? "text-green-500" : null}
+            className={`${showStorm ? "text-green-500" : null} flex flex-row`}
           >
+            <Icon
+              icon={storm}
+              className={`location-icon text-yellow-500 mx-3`}
+            />
             {showStorm ? "ON" : "OFF"}
           </button>
         </div>
